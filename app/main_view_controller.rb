@@ -1,9 +1,8 @@
  class MainViewController < UIViewController
 
   def loadView
-    self.title = 'Tasks'
     self.view = UIView.new 
-    view.backgroundColor = UIColor.whiteColor 
+    view.backgroundColor = UIColor.whiteColor
 
     @button = UIButton.new
     @button.setTitle("Add task", forState: UIControlStateNormal)
@@ -13,8 +12,12 @@
     view.addSubview(@button)
   end
 
+  def viewDidLoad
+    self.title = 'Tasks'
+  end
+
   def add_task
-    navigationController.pushViewController(MainViewController.new, animated:true) 
+    navigationController.pushViewController(AddTaskViewController.new, animated:true) 
   end
 
 
