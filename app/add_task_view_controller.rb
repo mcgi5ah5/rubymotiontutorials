@@ -1,4 +1,5 @@
 class AddTaskViewController <UIViewController
+  attr_accessor :task
   
   def loadView
     self.view = UIView.new
@@ -9,11 +10,15 @@ class AddTaskViewController <UIViewController
     @text_field.backgroundColor = UIColor.lightGrayColor
     @text_field.placeholder = 'Enter your task'
     view.addSubview(@text_field)
+  end
 
-
+  def viewWillDissapear(animated)
+    task.title = @text_field.text
   end
 
   def viewDidLoad
     self.title = 'Add task'
   end
+
 end
+
